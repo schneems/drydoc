@@ -1,0 +1,7 @@
+[package]
+name = "drydoc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+drydoc_derive = { path = "../drydoc_derive" }
