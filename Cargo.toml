@@ -2,7 +2,7 @@
 resolver = "2"
 members = [
     "drydoc",
-    "drydoc_derive",
+    "drydoc_usage",
 ]
 
 [workspace.package]
