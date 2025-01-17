@@ -1,11 +1,16 @@
 [package]
 name = "drydoc"
-version = "0.1.0"
-edition = "2021"
+description = "Keep your doctests DRY with flexible/reusable templates"
+include = ["src/**/*", "LICENSE.txt"]
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+documentation.workspace = true
 
 [lib]
 proc-macro = true
-
 
 [dependencies]
 fs-err = "3.0.0"
