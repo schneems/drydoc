@@ -8,7 +8,7 @@
 //!```
 //!
 //! ```
-#![doc = drydoc!(path = "docs/person.rs", toml = { name = "richard" })]
+#![doc = drydoc!(path = "docs/person.rs", toml = { name = "Schneems" })]
 //! ```
 //!
 // ```
