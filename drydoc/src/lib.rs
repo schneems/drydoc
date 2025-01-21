@@ -1,6 +1,7 @@
 #![cfg(not(doctest))]
 #![doc = include_str!("../README.md")]
 
+use minijinja::path_loader;
 use proc_macro::TokenStream;
 use quote::quote;
 use std::path::PathBuf;
@@ -53,11 +54,14 @@ impl Parse for Drydoc {
 
         let rendered = if cfg!(feature = "jinja") {
             let mut env = minijinja::Environment::new();
+            env.set_loader(path_loader(std::env::var("CARGO_MANIFEST_DIR").unwrap()));
+            env.add_filter("dochide", dochide_lines);
+
             #[cfg(feature = "minijinja-contrib")]
             minijinja_contrib::add_to_environment(&mut env);
-            let name = format!("{}", args.path.display());
-            env.add_template(&name, &contents).unwrap();
-            let template = env.get_template(&name).unwrap();
+            let template = env
+                .get_template(&format!("{}", args.path.display()))
+                .unwrap();
             template.render(args.toml).unwrap()
         } else {
             contents
