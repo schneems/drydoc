@@ -115,3 +115,8 @@ If you happen to write Rust code that minijinja thinks is jinja syntax you can e
     ## {% raw %}
 
 The `{% raw %}` tells Jinja, "Everything between these tags is NOT a JINJA template"; the hash in front `# ` hides these implementation details from our readers (so they won't show up in the output docs).
+
+## Known issues
+
+- Must be used as a `[dependencies]`: Current limitations in the way that caro builds documentation force using this as a dependency (rather than a dev-dependency) https://github.com/schneems/drydoc/issues/3.
+- Workspace support: Paths are relative from the crate root, meaning that sharing templates in a workspace is not supported today https://github.com/schneems/drydoc/issues/4.
