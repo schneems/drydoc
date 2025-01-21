@@ -80,7 +80,21 @@ You can use control and flow operators like [for](https://jinja.palletsprojects.
 
 ## Advanced JINJA: Extends, Include and Import
 
-JINJA templates can render other JINJA templates through directives such as `include`. This feature is not supported **yet** but I've got an idea of how to do it. This feature would let you meta-compose your docs.
+You can include a jinja template from another by using a full path from the crate root and the `include` jinja keyword:
+
+```jinja
+{% include "docs/header.rs" %}
+```
+
+If you want to include a template but hide it from the end user, you can use the `dochide` filter that is provided by drydoc:
+
+```jinja
+{% filter dochide %}
+{% include "docs/header.rs" %}
+{% endfilter %}
+```
+
+Every file in the crate is available as a template to import by default. For more info on `includes` and related functionality, see [template inheritance](https://jinja.palletsprojects.com/en/stable/templates/#template-inheritance).
 
 ## Rust-analyzer support
 

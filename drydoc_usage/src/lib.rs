@@ -11,9 +11,7 @@
 #![doc = drydoc!(path = "docs/person.rs", toml = { name = "Schneems" })]
 //! ```
 //!
-// ```
-// TODO
-// #![doc = drydoc!(path = "docs/import_example.rs")]
-// ```
-
+//! ```
+#![doc = drydoc!(path = "docs/import_example.rs")]
+//! ```
 pub use drydoc::drydoc;

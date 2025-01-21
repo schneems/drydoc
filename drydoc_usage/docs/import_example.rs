@@ -1,1 +1,3 @@
-{% include 'header.rs' %}
+{% filter dochide %}
+{% include "docs/header.rs" %}
+{% endfilter %}
